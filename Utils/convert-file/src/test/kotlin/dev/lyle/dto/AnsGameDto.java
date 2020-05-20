@@ -1,4 +1,4 @@
-package com.lyle.dto;
+package dev.lyle.dto;
 
 import java.util.Date;
 

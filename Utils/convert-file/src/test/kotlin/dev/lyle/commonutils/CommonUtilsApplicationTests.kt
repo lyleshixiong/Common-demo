@@ -1,4 +1,4 @@
-package com.lyle.commonutils
+package dev.lyle.commonutils
 
 import org.junit.Test
 import org.junit.runner.RunWith

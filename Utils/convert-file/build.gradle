@@ -48,6 +48,8 @@ repositories {
 
 dependencies {
 	implementation('org.springframework.boot:spring-boot-starter')
+	implementation('org.springframework.boot:spring-boot-starter-web')
+
 	implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
 	implementation("org.jetbrains.kotlin:kotlin-reflect")
 	compile group: 'com.alibaba', name: 'fastjson', version: '1.2.58'
@@ -59,6 +61,10 @@ dependencies {
 	compile 'com.zhy:okhttputils:2.6.2'
 	compile group: "junit", name: "junit", version: "4.12"
 	compile group: 'org.apache.poi', name: 'poi', version: '3.17'
+	compile group: 'org.codehaus.jackson', name: 'jackson-core-asl', version: '1.9.13'
+	compile group: 'org.codehaus.jackson', name: 'jackson-mapper-asl', version: '1.9.13'
+
+
 	compile group: 'org.apache.poi', name: 'poi-ooxml', version: '3.17'
 	compile group: 'org.apache.poi', name: 'poi-ooxml-schemas', version: '3.17'
 	compile group: 'org.apache.xmlbeans', name: 'xmlbeans', version: '2.6.0'

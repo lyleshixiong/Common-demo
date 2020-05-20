@@ -1,4 +1,4 @@
-package com.lyle.commonutils;
+package dev.lyle.commonutils;
 
 import java.io.File;
 import java.io.FileOutputStream;

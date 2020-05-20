@@ -1,6 +1,6 @@
-package com.lyle.readFileUtils;
+package dev.lyle.readFileUtils;
 
-import com.lyle.dto.GameCommonBean;
+import dev.lyle.dto.GameCommonBean;
 import org.apache.poi.ss.usermodel.*;
 import org.springframework.util.StringUtils;
 
@@ -14,23 +14,42 @@ import java.util.Map;
 /**
  * Author_by: Lyle
  */
-public class ReadExcelGoogleState {
+public class ReadExcelCommon {
 
     private static Map<String,String> beanMap = new HashMap<>();
 
+//    static{ //需操作下excle 中的productId.   copy all ProductId-> 右键 (选择性粘贴) ->数值
+//        beanMap.put("appId","a");
+//        beanMap.put("productId","b");
+//        beanMap.put("usd","c");
+//        beanMap.put("gpId","n");
+//        beanMap.put("oneStoreId","m");
+//        beanMap.put("krw","d");
+//        beanMap.put("ybNum","k");
+//
+//        //start 0
+//        beanMap.put("startIndex","3");
+//        beanMap.put("endIndex","18");
+//        //第几个sheet ^start 0
+//        beanMap.put("sheetIndex","0");
+//
+//    }
 
     public static List<GameCommonBean> readExcel(InputStream is,Map<String,String> temMap) throws Exception {
         Workbook workbook = WorkbookFactory.create(is);
+        int sheetNum = workbook.getNumberOfSheets();
         beanMap = temMap;
         LinkedList<GameCommonBean> list = new LinkedList<>();
-        Sheet sheet = workbook.getSheetAt(Integer.valueOf(temMap.get("sheetIndex")));
+        for (int i=0;i<sheetNum;i++) {
+            Sheet sheet = workbook.getSheetAt(Integer.parseInt(beanMap.get("sheetIndex")));
 
-        System.out.println(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>sheetNameIs = [" +  sheet.getSheetName() + "]");
-        System.out.println(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>sheet.getLastRowNum() = [" +  (sheet.getLastRowNum()) + "]");
+            System.out.println(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>sheetNameIs = [" +  sheet.getSheetName() + "]");
+            System.out.println(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>sumColumnIs = [" + (Integer.parseInt(beanMap.get("endIndex"))-(Integer.parseInt(beanMap.get("startIndex")))) + "]");
 
-        for(int rowNum = (Integer.parseInt(beanMap.get("startIndex"))); rowNum <= sheet.getLastRowNum(); rowNum++) {
-            Row xssfRow = sheet.getRow(rowNum);
-            if (!StringUtils.isEmpty(xssfRow)) { list.add(judgeRule(xssfRow,sheet.getSheetName())); }
+            for(int rowNum = (Integer.parseInt(beanMap.get("startIndex"))); rowNum <= (Integer.parseInt(beanMap.get("endIndex"))); rowNum++) {
+                Row xssfRow = sheet.getRow(rowNum);
+                if (!StringUtils.isEmpty(xssfRow)) { list.add(judgeRule(xssfRow)); }
+            }
         }
 
         return list;
@@ -60,9 +79,8 @@ public class ReadExcelGoogleState {
         return "";
     }
 
-    private static GameCommonBean judgeRule(Row xssfRow, String sheetName) {
+    private static GameCommonBean judgeRule(Row xssfRow) {
         GameCommonBean bean = new GameCommonBean();
-        bean.setGpId(sheetName);
         for (int i = 0; i < xssfRow.getLastCellNum(); i++) {
             Cell ic_no = xssfRow.getCell(i);
             if (!StringUtils.isEmpty(ic_no)) {

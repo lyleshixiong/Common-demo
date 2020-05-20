@@ -1,4 +1,4 @@
-package com.lyle.dto;
+package dev.lyle.dto;
 
 public class GameParameters {
 	private String uid;

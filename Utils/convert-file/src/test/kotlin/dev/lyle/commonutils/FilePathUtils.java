@@ -1,4 +1,4 @@
-package com.lyle.commonutils;
+package dev.lyle.commonutils;
 
 public class FilePathUtils {
     public static String getFilePath(String f) {

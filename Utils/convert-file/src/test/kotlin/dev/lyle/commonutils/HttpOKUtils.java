@@ -1,8 +1,8 @@
-package com.lyle.commonutils;
+package dev.lyle.commonutils;
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
-import com.lyle.dto.GameParameters;
+import dev.lyle.dto.GameParameters;
 import okhttp3.HttpUrl;
 import okhttp3.Request;
 import okhttp3.Response;

@@ -1,4 +1,4 @@
-package com.lyle.commonutils;
+package dev.lyle.commonutils;
 
 import javax.net.ssl.*;
 import java.security.SecureRandom;
