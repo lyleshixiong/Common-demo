@@ -28,9 +28,11 @@ public class ReadExcelGoogleState {
         System.out.println(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>sheetNameIs = [" +  sheet.getSheetName() + "]");
         System.out.println(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>sheet.getLastRowNum() = [" +  (sheet.getLastRowNum()) + "]");
 
-        for(int rowNum = (Integer.parseInt(beanMap.get("startIndex"))); rowNum <= sheet.getLastRowNum(); rowNum++) {
+        for (int rowNum = (Integer.parseInt(beanMap.get("startIndex"))), rs = sheet.getLastRowNum(); rowNum <= rs; rowNum++) {
             Row xssfRow = sheet.getRow(rowNum);
-            if (!StringUtils.isEmpty(xssfRow)) { list.add(judgeRule(xssfRow,sheet.getSheetName())); }
+            if (null != xssfRow && !StringUtils.isEmpty(xssfRow.getCell(xssfRow.getFirstCellNum()).getStringCellValue()) ) {
+                list.add(judgeRule(xssfRow, sheet.getSheetName()));
+            }
         }
 
         return list;
