@@ -23,7 +23,7 @@ public class GoogleMoneyStatePrint {
 //        beanMap.put("ybNum","k");
 
         //start 0
-        beanMap.put("startIndex","");
+        beanMap.put("startIndex","1");
 //        beanMap.put("endIndex","57");
         //第几个sheet ^start 0
         beanMap.put("sheetIndex","0");
@@ -67,8 +67,9 @@ public class GoogleMoneyStatePrint {
 
         }
         sb.append(");");
-        sb.append("\n\n>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>\n\n"+ii);
-        System.out.println(sb.toString()+">>>>>>>>>>>>>"+ii);
+        sb.append("\n\nSELECT googleOrderId,account_status,country from google WHERE googleOrderId in('GPA.3310-5243-1847-29612','GPA.3321-4946-1839-13741')");
+        sb.append("\n\n>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>"+ii);
+        System.out.println(sb.toString());
     }
 
 }
