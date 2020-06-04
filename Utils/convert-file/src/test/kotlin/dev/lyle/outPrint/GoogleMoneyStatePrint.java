@@ -68,7 +68,7 @@ public class GoogleMoneyStatePrint {
         }
         sb.append(");");
         sb.append("\n\nSELECT googleOrderId,account_status,country from google WHERE googleOrderId in('GPA.3310-5243-1847-29612','GPA.3321-4946-1839-13741')");
-        sb.append("\n\n>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>"+ii);
+        sb.append("\n\n>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>总共记录："+ii+"<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<");
         System.out.println(sb.toString());
     }
 

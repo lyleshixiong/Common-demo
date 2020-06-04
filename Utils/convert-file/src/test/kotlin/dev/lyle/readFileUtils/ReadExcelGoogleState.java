@@ -30,14 +30,12 @@ public class ReadExcelGoogleState {
 
         for (int rowNum = (Integer.parseInt(beanMap.get("startIndex"))), rs = sheet.getLastRowNum(); rowNum <= rs; rowNum++) {
             Row xssfRow = sheet.getRow(rowNum);
-//            Cell c = xssfRow.getCell(rowNum);
-//            if (c == null || c.getCellType() == Cell.CELL_TYPE_BLANK) {
-//                // Can't be this cell - it's empty
-//                continue;
-//            }
-            if (null != xssfRow && !StringUtils.isEmpty(xssfRow.getCell(xssfRow.getFirstCellNum()).getStringCellValue()) ) {
-                list.add(judgeRule(xssfRow, sheet.getSheetName()));
+            if(xssfRow == null ||xssfRow.getPhysicalNumberOfCells()==0){
+                continue;
             }
+//            if (null != xssfRow && !StringUtils.isEmpty(xssfRow.getCell(xssfRow.getFirstCellNum()).getStringCellValue()) ) {
+                list.add(judgeRule(xssfRow, sheet.getSheetName()));
+//            }
         }
 
         return list;
