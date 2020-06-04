@@ -46,7 +46,7 @@ public class GoogleMoneyStatePrint {
 
     private static void fmtMap(List<GameCommonBean> list) {
 //        0:已對帳/1:測試/2:退單/3:呆帳/4:未销账/5:退款
-        StringBuilder sb = new StringBuilder("UPDATE googlePlay set account_status = 5 ,country ='tem2' WHERE googleOrderId IN(");
+        StringBuilder sb = new StringBuilder("UPDATE googlePlay set account_status = 5 ,country ='tem3' WHERE googleOrderId IN(");
         int ii = 0;
         Map<String, String> map = new HashMap<>();
         for (GameCommonBean g : list) {
